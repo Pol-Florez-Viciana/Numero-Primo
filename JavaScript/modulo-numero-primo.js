@@ -14,6 +14,7 @@ const Cuatro = 4;
 const Cinco = 5;
 const Seis = 6;
 const Siete = 7;
+const Nueve = 9;
 const Once = 11;
 const Mil = 1000;
 
@@ -84,8 +85,9 @@ function EsPrimo(Numero){
 		
 		// Este código reduce el tamaño del bucle sin afectar al resultado
 		var Largada = "" + Numero; // Creamos String Para Saber la Largada de dígitos
-		var Limite = 11;
-		if (Largada.length == 3 ){ Limite = 10; }
+		var Limite = 10;
+		if (Largada.length == 2 ){ Limite = 10; }
+		if (Largada.length == 3 ){ Limite = 100; }
 		if (Largada.length == 4 ){ Limite = 100; }
 		if (Largada.length == 5 ){ Limite = 100; }
 		if (Largada.length == 6 ){ Limite = 100; }
@@ -105,7 +107,7 @@ function EsPrimo(Numero){
 		
 		// Llegados a este punto, entramos en bucle de impares para descartar no primos con posibles primos no comprobados
 		// Y entramos en bucle recorriendo impares de 11 hacia el limite descartando los multiplos de 3 y 5 en su comprobación de no primo
-		for ( x = Once; x <= Limite; x = x + Dos) {
+		for ( x = Nueve; x <= Limite; x = x + Dos) {
 			if ( x % Cinco != Cero && x % Tres != Cero ){	
 				if (Numero % x == Cero) { return x; } // Si esto se cumple es que no es primo y devolvemos su multiple
 			}	
