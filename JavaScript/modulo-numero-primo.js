@@ -84,26 +84,26 @@ function EsPrimo(Numero){
 		
 		// Este código reduce el tamaño del bucle sin afectar al resultado
 		var Largada = "" + Numero; // Creamos String Para Saber la Largada de dígitos
-		var Limite = 11;
-		if (Largada.length >= 3 && Largada.length <= 5 ){ Limite = 100; }
-		if (Largada.length >= 6 && Largada.length <= 9 ){ Limite = 1000; }
-		if (Largada.length >= 10 && Largada.length <= 11 ){ Limite = 10000; }
-		if (Largada.length >= 12 && Largada.length <= 13 ){ Limite = 1000000; }
-		if (Largada.length >= 14 && Largada.length <= 15 ){ Limite = 10000000; }
-		
-		//var Veces = Largada.length / 2;
-		//var Limitante = "0."; // Este nos servira de limite de la largada nueva
-		//for ( x = 1; x < parseInt(Veces); x++){
-		//	Limitante = Limitante + "0"; // Esto es como multiplicar 1·10 y por 10 y por 10...
-		//}
-		//Limitante = Limitante + "1";
-		
-		//var Limite = parseInt(Numero * Limitante); // Con lo que establecemos que el limite tiene la mitad de decimales del número
+		var Limite = 100;
+		if (Largada.length == 3 ){ Limite = 100; }
+		if (Largada.length == 4 ){ Limite = 100; }
+		if (Largada.length == 5 ){ Limite = 100; }
+		if (Largada.length == 6 ){ Limite = 1000; }
+		if (Largada.length == 7 ){ Limite = 1000; }
+		if (Largada.length == 8 ){ Limite = 1000; }
+		if (Largada.length == 9 ){ Limite = 1000; }
+		if (Largada.length == 10 ){ Limite = 10000; }
+		if (Largada.length == 11 ){ Limite = 10000; }
+		if (Largada.length == 12 ){ Limite = 100000; }
+		if (Largada.length == 13 ){ Limite = 100000; }
+		if (Largada.length == 14 ){ Limite = 1000000; }
+		if (Largada.length == 15 ){ Limite = 10000000; }
+		if (Largada.length == 16 ){ Limite = 10000000; }
 		
 		// Solo con esto también sirve pero es mas lento
 		//var Limite = parseInt(Math.sqrt(Numero)); // Propuesta de otro código con el que accedemos al limite del bucle con su raiz cuadrada
 		
-		// Llegados a este punto, entramos en bucle de impares para descartar no primos
+		// Llegados a este punto, entramos en bucle de impares para descartar no primos con posibles primos no comprobados
 		// Y entramos en bucle recorriendo impares de 11 hacia el limite descartando los multiplos de 3 y 5 en su comprobación de no primo
 		for ( x = Once; x <= Limite; x = x + Dos) {
 			if ( x % Cinco != Cero && x % Tres != Cero ){	
