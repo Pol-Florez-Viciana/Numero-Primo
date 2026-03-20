@@ -85,10 +85,10 @@ function EsPrimo(Numero){
 		// Este código reduce el tamaño del bucle sin afectar al resultado
 		var Largada = "" + Numero; // Creamos String Para Saber la Largada de dígitos
 		var Limite = 11;
-		if (Largada.length == 3 ){ Limite = 100; }
+		if (Largada.length == 3 ){ Limite = 10; }
 		if (Largada.length == 4 ){ Limite = 100; }
 		if (Largada.length == 5 ){ Limite = 100; }
-		if (Largada.length == 6 ){ Limite = 1000; }
+		if (Largada.length == 6 ){ Limite = 100; }
 		if (Largada.length == 7 ){ Limite = 1000; }
 		if (Largada.length == 8 ){ Limite = 1000; }
 		if (Largada.length == 9 ){ Limite = 1000; }
