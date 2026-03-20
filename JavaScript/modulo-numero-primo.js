@@ -84,7 +84,7 @@ function EsPrimo(Numero){
 		
 		// Este código reduce el tamaño del bucle sin afectar al resultado
 		var Largada = "" + Numero; // Creamos String Para Saber la Largada de dígitos
-		var Limite = 100;
+		var Limite = 11;
 		if (Largada.length == 3 ){ Limite = 100; }
 		if (Largada.length == 4 ){ Limite = 100; }
 		if (Largada.length == 5 ){ Limite = 100; }
