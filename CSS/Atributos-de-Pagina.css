@@ -54,6 +54,9 @@ section {
 #Pantalla2 {
 	display: none;
 }
+#Pantalla3 {
+	display: none;
+}
 .Centrado{
 	vertical-align: top;
 	display: inline-block;

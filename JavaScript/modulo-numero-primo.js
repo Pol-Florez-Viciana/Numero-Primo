@@ -18,6 +18,30 @@ const Nueve = 9;
 const Once = 11;
 const Mil = 1000;
 
+function ContarNumeros(){
+	let NMinimo = parseFloat(document.getElementById("Texto2").value);
+	let NMaximo = parseFloat(document.getElementById("Texto3").value);
+	
+	if(NMinimo % 2 == 0 || Number.isInteger(NMinimo) == false || NMinimo <= 0 ){
+		document.getElementById("ResultadoCuenta").innerHTML = "El rango mínimo no puede ser 0 y a de ser un número natural e impar...";
+		return; 
+	}
+	
+	if(NMaximo <= 0 || Number.isInteger(NMaximo) == false || NMinimo > NMaximo){
+		document.getElementById("ResultadoCuenta").innerHTML = "El rango máximo no puede ser 0 y a de ser un número natural mayor al rango mínimo...";
+		return; 
+	}
+	
+	let CuentadePrimos = 0;
+	for (let n = NMinimo; n <= NMaximo; n += 2){
+		if (EsPrimo(n) == 0){
+			CuentadePrimos++;
+		}
+	}
+	
+	document.getElementById("ResultadoCuenta").innerHTML = "Cuenta de Número de Primos Entre " + NMinimo + " y " + NMaximo + " es de " + CuentadePrimos;
+}
+
 function ComprobarSegunPol(){
 	var Numero = parseFloat(document.getElementById("Texto1").value);
 	var Resultado = EsPrimo(Numero);
@@ -124,8 +148,15 @@ function Porunidaje(Cuantia,Tamano,Escala){
 function Ir1(){
 	document.getElementById("Pantalla1").style = "display: inline-block;";
 	document.getElementById("Pantalla2").style = "display: none;";
+	document.getElementById("Pantalla3").style = "display: none;";
 }
 function Ir2(){
 	document.getElementById("Pantalla1").style = "display: none;";
 	document.getElementById("Pantalla2").style = "display: inline-block;";
+	document.getElementById("Pantalla3").style = "display: none;";
+}
+function Ir3(){
+	document.getElementById("Pantalla1").style = "display: none;";
+	document.getElementById("Pantalla2").style = "display: none;";
+	document.getElementById("Pantalla3").style = "display: inline-block;";
 }
