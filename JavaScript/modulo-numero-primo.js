@@ -35,24 +35,44 @@ function ContarNumeros(){
 	let CuentadePrimos = 0;
 	for (let n = NMinimo; n <= NMaximo; n += 2){
 		if (EsPrimo(n) == 0){
+		//if (IsPrimeNumber(n) == 0){
 			CuentadePrimos++;
 		}
 	}
 	
 	document.getElementById("ResultadoCuenta").innerHTML = "Cuenta de Número de Primos Entre " + NMinimo + " y " + NMaximo + " es de " + CuentadePrimos;
 }
-
+function ComprobarMarcene(){
+	var Numero = parseFloat(document.getElementById("Texto1").value);
+	var Resultado = EsPrimo(Numero);
+	var TextoDevuelto = "";
+	if(Resultado == Cero){
+		let SubResultado = EsPrimo(Math.pow(2,Numero) - 1);
+		if(SubResultado == Cero){
+			TextoDevuelto = "El Número " + Numero + " es Primo de Marcene.";
+		}else{
+			TextoDevuelto = "El Número " + Numero + " No es Primo de Marcene Pero es Primo.";
+		}	
+	}else{
+		if (Resultado == Uno){
+			TextoDevuelto = "El Número " + Numero + " No es Primo.";
+		}else{
+			TextoDevuelto = "El Número " + Numero + " No es Primo y es Divisible por " + Resultado;
+		}
+	}
+	document.getElementById("Resultado").innerHTML = TextoDevuelto;
+}
 function ComprobarSegunPol(){
 	var Numero = parseFloat(document.getElementById("Texto1").value);
 	var Resultado = EsPrimo(Numero);
 	var TextoDevuelto = "";
 	if(Resultado == Cero){
-		TextoDevuelto = "Según Pol El Número " + Numero + " es Primo.";
+		TextoDevuelto = "El Número " + Numero + " es Primo.";
 	}else{
 		if (Resultado == Uno){
-			TextoDevuelto = "Según Pol El Número " + Numero + " No es Primo.";
+			TextoDevuelto = "El Número " + Numero + " No es Primo.";
 		}else{
-			TextoDevuelto = "Según Pol El Número " + Numero + " No es Primo y es Divisible por " + Resultado;
+			TextoDevuelto = "El Número " + Numero + " No es Primo y es Divisible por " + Resultado;
 		}
 	}
 	document.getElementById("Resultado").innerHTML = TextoDevuelto;
@@ -107,30 +127,30 @@ function EsPrimo(Numero){
 		if ( Numero % Cinco == Cero ){ return Cinco; }
 		if ( Numero % Siete == Cero ){ return Siete; }			
 		
-		// Este código reduce el tamaño del bucle sin afectar al resultado
-		var Largada = "" + Numero; // Creamos String Para Saber la Largada de dígitos
-		var Limite = 10;
-		if (Largada.length == 2 ){ Limite = 10; }
-		if (Largada.length == 3 ){ Limite = 100; }
-		if (Largada.length == 4 ){ Limite = 100; }
-		if (Largada.length == 5 ){ Limite = 100; }
-		if (Largada.length == 6 ){ Limite = 100; }
-		if (Largada.length == 7 ){ Limite = 1000; }
-		if (Largada.length == 8 ){ Limite = 1000; }
-		if (Largada.length == 9 ){ Limite = 1000; }
-		if (Largada.length == 10 ){ Limite = 10000; }
-		if (Largada.length == 11 ){ Limite = 10000; }
-		if (Largada.length == 12 ){ Limite = 100000; }
-		if (Largada.length == 13 ){ Limite = 100000; }
-		if (Largada.length == 14 ){ Limite = 1000000; }
-		if (Largada.length == 15 ){ Limite = 10000000; }
-		if (Largada.length == 16 ){ Limite = 10000000; }
+		// Este código reduce el tamaño del bucle pero afecta al resultado
+		// var Largada = "" + Numero; // Creamos String Para Saber la Largada de dígitos
+		// var Limite = 10;
+		// if (Largada.length == 2 ){ Limite = 100; }
+		// if (Largada.length == 3 ){ Limite = 100; }
+		// if (Largada.length == 4 ){ Limite = 1000; }
+		// if (Largada.length == 5 ){ Limite = 1000; }
+		// if (Largada.length == 6 ){ Limite = 10000; }
+		// if (Largada.length == 7 ){ Limite = 10000; }
+		// if (Largada.length == 8 ){ Limite = 100000; }
+		// if (Largada.length == 9 ){ Limite = 100000; }
+		// if (Largada.length == 10 ){ Limite = 1000000; }
+		// if (Largada.length == 11 ){ Limite = 1000000; }
+		// if (Largada.length == 12 ){ Limite = 10000000; }
+		// if (Largada.length == 13 ){ Limite = 10000000; }
+		// if (Largada.length == 14 ){ Limite = 100000000; }
+		// if (Largada.length == 15 ){ Limite = 100000000; }
+		// if (Largada.length == 16 ){ Limite = 1000000000; }
 		
-		// Solo con esto también sirve pero es mas lento
-		//var Limite = parseInt(Math.sqrt(Numero)); // Propuesta de otro código con el que accedemos al limite del bucle con su raiz cuadrada
+		// Establecemos el limite del bucle
+		let Limite = parseInt(Math.sqrt(Numero));
 		
 		// Llegados a este punto, entramos en bucle de impares para descartar no primos con posibles primos no comprobados
-		// Y entramos en bucle recorriendo impares de 11 hacia el limite descartando los multiplos de 3 y 5 en su comprobación de no primo
+		// Y entramos en bucle recorriendo impares de 9 hacia el limite descartando los multiplos de 3 y 5 en su comprobación de no primo
 		for ( x = Nueve; x <= Limite; x = x + Dos) {
 			if ( x % Cinco != Cero && x % Tres != Cero ){	
 				if (Numero % x == Cero) { return x; } // Si esto se cumple es que no es primo y devolvemos su multiple

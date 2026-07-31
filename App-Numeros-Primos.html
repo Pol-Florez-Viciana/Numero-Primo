@@ -5,7 +5,7 @@
 	<meta name="author" content="Pol Flórez Viciana" >
 	<meta name="owner" content="Pol Flórez Viciana" >
 	<meta name="keywords" content="Inicial" >
-	<title>App Números Primos 10.0</title>
+	<title>App Números Primos 12.0</title>
 	<meta name="description" content="Aplicación de Comprobación de Números Primos." >
 	<meta name="robots" content="index, dofollow" >
 	<link rel="icon" type="image/png" href="./imagenes/Logo.ico">
@@ -18,7 +18,7 @@
 <body>
 	<center>
 		<header>
-			<table><tr><td><img style="width: 64px;" src="./imagenes/Logo-Pol-Software.png" /></td><td><h1 id="Titulo">App Números Primos 10.0</h1></td></tr></table>
+			<table><tr><td><img style="width: 64px;" src="./imagenes/Logo-Pol-Software.png" /></td><td><h1 id="Titulo">App Números Primos 12.0</h1></td></tr></table>
 		</header>
 		
 		<!-- Aquí empieza cada pantalla -->
@@ -34,12 +34,16 @@
 			<td><input class="MyInput" style="background-color: green; color: white;" type="button" onclick="Ir3()" value="Ayuda" title="Ver Ayuda" /><br></td>
 			</tr>
 			</table>
-			<p>Introduzca el número entero a comprobar y pulse sobre el botón para comprobar.</p><br>
+			<p>Introduzca un número de conjunto entero para comprobar si es primo o no y pulse sobre el botón para comprobar.</p><br>
 			<input type="textbox" id="Texto1" name="Texto1" maxlength="16" title="Introduzca un Número" />
+			<!--
 			<input class="MyInput" type="button" id="Comprobar1" name="Comprobar1" onclick="Comprobar()" value="Método IA" title="Comprobar si es Número Primo con la Función de una IA" />
-			<input class="MyInput" type="button" id="Comprobar2" name="Comprobar2" onclick="ComprobarSegunPol()" value="Método Pol" title="Comprobar si es Número Primo con la Función de Pol" />
+			-->
+			<input class="MyInput" type="button" id="Comprobar2" name="Comprobar2" onclick="ComprobarSegunPol()" value="Determinar Primo" title="Determinar si es Número Primo" />
 			<br><br>
-			<p id="Resultado">Introduzca un número natural para comprobar si es primo o no...</p>
+			<input class="MyInput" type="button" id="Comprobar3" name="Comprobar3" onclick="ComprobarMarcene()" value="Determinar Primo Marcene" title="Determinar si es Número Primo de Marcene" />
+			<br><br>
+			<p id="Resultado">Introduzca un número de conjunto entero para comprobar si es primo o no...</p>
 			<br><br>
 		</section>
 		
@@ -71,21 +75,20 @@
 			<td><input class="MyInput" style="background-color: red; color: white;" type="button" onclick="Ir1()" value="X" title="Salir" /><br></td>
 			</tr>
 			</table>
-			<p>Un número primo según Pol, es un número entero de valor grupal mayor a 2 , que sólo puede ser dividido de manera entera, 
-			por 1 , y, por el número en si mismo.</p>
+			<p>Comprueba y determina si un número es primo o no con esta sencilla aplicación.</p>
 			<br>
-			<p>Esto cumple que un número X de valor grupal mayor a 2 cumpla X/1=X y X/X=1 que esto lo cumple cualquier número, pero, además, 
-			hay que cumplir no sea X/Y=Entero lo cual descartaría de ser primo.<br>
+			<p>También puedes comprobar y determinar si un número es un número primo de Marcene o no con esta aplicación.</p>
 			<br>
-			El Primer Número según este enunciado para X en X/Y es igual a X=3 pero sólo en el método Pol...<br> 
-			</p>
+			<p>Tienes el artículo completo sobre que son los números primos en la web de Pol en la siguiente dirección web:</p>
+			<br>
+			<a href="https://dos-a-la-tres.com/matematicas-1.php" target="_blank" >https://dos-a-la-tres.com/matematicas-1.php</a><br>
+			<br>
+			<p>Tienes más información sobre matemáticas en la web de Pol en la siguiente dirección web:</p>
 			<br>
 			<a href="https://dos-a-la-tres.com/matematicas.php" target="_blank" >https://dos-a-la-tres.com/matematicas.php</a><br>
-			<br>
-			<br>
 		</section>
 		
-		<footer id="FechaInicioFechaFin" ><a href="mailto:polflorez@hotmail.com">polflorez@hotmail.com</a> ~ 04/10/2024 - 20/03/2026</footer>
+		<footer id="FechaInicioFechaFin" ><a href="mailto:polflorez@hotmail.com">polflorez@hotmail.com</a> ~ 04/10/2024 - 31/07/2026</footer>
 	</center>	
 </body>
 </html>
