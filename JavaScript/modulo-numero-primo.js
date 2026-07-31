@@ -34,10 +34,17 @@ function ContarNumeros(){
 	
 	let CuentadePrimos = 0;
 	for (let n = NMinimo; n <= NMaximo; n += 2){
-		if (EsPrimo(n) == 0){
-		//if (IsPrimeNumber(n) == 0){
-			CuentadePrimos++;
-		}
+		if( n <= 5 ){
+			if (EsPrimo(n) == 0){
+				CuentadePrimos++;
+			}
+		}else{
+			if( n % 3 != 0 || n % 5 != 0 ){
+				if (EsPrimo(n) == 0){
+					CuentadePrimos++;
+				}
+			}
+		}	
 	}
 	
 	document.getElementById("ResultadoCuenta").innerHTML = "Cuenta de Número de Primos Entre " + NMinimo + " y " + NMaximo + " es de " + CuentadePrimos;
