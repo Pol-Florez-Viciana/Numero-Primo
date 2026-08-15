@@ -18,17 +18,17 @@ const Nueve = 9;
 const Once = 11;
 const Mil = 1000;
 
-function ContarNumeros(){
+function ContarPrimos(){
 	let NMinimo = parseFloat(document.getElementById("Texto2").value);
 	let NMaximo = parseFloat(document.getElementById("Texto3").value);
 	
 	if(NMinimo % 2 == 0 || Number.isInteger(NMinimo) == false || NMinimo <= 0 ){
-		document.getElementById("ResultadoCuenta").innerHTML = "El rango mínimo no puede ser 0 y a de ser un número natural e impar...";
+		document.getElementById("Resultado2").innerHTML = "El rango mínimo no puede ser 0 y a de ser un número natural e impar positivo...";
 		return; 
 	}
 	
 	if(NMaximo <= 0 || Number.isInteger(NMaximo) == false || NMinimo > NMaximo){
-		document.getElementById("ResultadoCuenta").innerHTML = "El rango máximo no puede ser 0 y a de ser un número natural mayor al rango mínimo...";
+		document.getElementById("Resultado2").innerHTML = "El rango máximo no puede ser 0 y a de ser un número natural positivo mayor al rango mínimo...";
 		return; 
 	}
 	
@@ -47,12 +47,45 @@ function ContarNumeros(){
 		}	
 	}
 	
-	document.getElementById("ResultadoCuenta").innerHTML = "Cuenta de Número de Primos Entre " + NMinimo + " y " + NMaximo + " es de " + CuentadePrimos;
+	document.getElementById("Resultado2").innerHTML = "Cuenta de Número de Primos Entre " + NMinimo + " y " + NMaximo + " es de " + CuentadePrimos;
+}
+function VerRango(){
+	let Numero = parseFloat(document.getElementById("Texto4").value);
+	
+	if(Number.isInteger(Numero) == false || Numero <= 0 ){
+		document.getElementById("Resultado3").innerHTML = "El número a de ser natural y positivo...";
+		return; 
+	}
+	let Cuenta = 0;
+	let CuentadePrimos = 0;
+	for (let n = 3; n <= 100000; n += 2){
+		if( n <= 5 ){
+			if (EsPrimo(n) == 0){
+				CuentadePrimos++;
+			}
+		}else{
+			if( n % 3 != 0 || n % 5 != 0 ){
+				if (EsPrimo(n) == 0){
+					CuentadePrimos++;
+				}
+			}
+		}
+		if (Numero == CuentadePrimos){
+			Cuenta = n;
+			break;
+		}	
+	}
+	
+	document.getElementById("Resultado3").innerHTML = "El Número de Primos " + Numero + " esta Entre 3 y " + Cuenta;
 }
 function ComprobarMarcene(){
-	var Numero = parseFloat(document.getElementById("Texto1").value);
-	var Resultado = EsPrimo(Numero);
-	var TextoDevuelto = "";
+	let Numero = parseFloat(document.getElementById("Texto1").value);
+	if(Number.isInteger(Numero) == false || Numero <= 0 ){
+		document.getElementById("Resultado1").innerHTML = "El número a de ser natural y positivo...";
+		return; 
+	}
+	let Resultado = EsPrimo(Numero);
+	let TextoDevuelto = "";
 	if(Resultado == Cero){
 		let SubResultado = EsPrimo(Math.pow(2,Numero) - 1);
 		if(SubResultado == Cero){
@@ -67,12 +100,16 @@ function ComprobarMarcene(){
 			TextoDevuelto = "El Número " + Numero + " No es Primo y es Divisible por " + Resultado;
 		}
 	}
-	document.getElementById("Resultado").innerHTML = TextoDevuelto;
+	document.getElementById("Resultado1").innerHTML = TextoDevuelto;
 }
-function ComprobarSegunPol(){
-	var Numero = parseFloat(document.getElementById("Texto1").value);
-	var Resultado = EsPrimo(Numero);
-	var TextoDevuelto = "";
+function ComprobarPrimo(){
+	let Numero = parseFloat(document.getElementById("Texto1").value);
+	if(Number.isInteger(Numero) == false || Numero <= 0 ){
+		document.getElementById("Resultado1").innerHTML = "El número a de ser natural y positivo...";
+		return; 
+	}
+	let Resultado = EsPrimo(Numero);
+	let TextoDevuelto = "";
 	if(Resultado == Cero){
 		TextoDevuelto = "El Número " + Numero + " es Primo.";
 	}else{
@@ -82,7 +119,7 @@ function ComprobarSegunPol(){
 			TextoDevuelto = "El Número " + Numero + " No es Primo y es Divisible por " + Resultado;
 		}
 	}
-	document.getElementById("Resultado").innerHTML = TextoDevuelto;
+	document.getElementById("Resultado1").innerHTML = TextoDevuelto;
 }
 function Comprobar(){
 	var Numero = parseFloat(document.getElementById("Texto1").value);
@@ -97,7 +134,7 @@ function Comprobar(){
 			TextoDevuelto = "El Número " + Numero + " No es Primo y es Divisible por " + Resultado;
 		}
 	}
-	document.getElementById("Resultado").innerHTML = TextoDevuelto;
+	document.getElementById("Resultado1").innerHTML = TextoDevuelto;
 }
 
 // Función de Ejemplo de Stack Overflow
@@ -134,25 +171,6 @@ function EsPrimo(Numero){
 		if ( Numero % Cinco == Cero ){ return Cinco; }
 		if ( Numero % Siete == Cero ){ return Siete; }			
 		
-		// Este código reduce el tamaño del bucle pero afecta al resultado
-		// var Largada = "" + Numero; // Creamos String Para Saber la Largada de dígitos
-		// var Limite = 10;
-		// if (Largada.length == 2 ){ Limite = 100; }
-		// if (Largada.length == 3 ){ Limite = 100; }
-		// if (Largada.length == 4 ){ Limite = 1000; }
-		// if (Largada.length == 5 ){ Limite = 1000; }
-		// if (Largada.length == 6 ){ Limite = 10000; }
-		// if (Largada.length == 7 ){ Limite = 10000; }
-		// if (Largada.length == 8 ){ Limite = 100000; }
-		// if (Largada.length == 9 ){ Limite = 100000; }
-		// if (Largada.length == 10 ){ Limite = 1000000; }
-		// if (Largada.length == 11 ){ Limite = 1000000; }
-		// if (Largada.length == 12 ){ Limite = 10000000; }
-		// if (Largada.length == 13 ){ Limite = 10000000; }
-		// if (Largada.length == 14 ){ Limite = 100000000; }
-		// if (Largada.length == 15 ){ Limite = 100000000; }
-		// if (Largada.length == 16 ){ Limite = 1000000000; }
-		
 		// Establecemos el limite del bucle
 		let Limite = parseInt(Math.sqrt(Numero));
 		
@@ -176,14 +194,34 @@ function Ir1(){
 	document.getElementById("Pantalla1").style = "display: inline-block;";
 	document.getElementById("Pantalla2").style = "display: none;";
 	document.getElementById("Pantalla3").style = "display: none;";
+	document.getElementById("Pantalla4").style = "display: none;";
+	document.getElementById("Pantalla5").style = "display: none;";
 }
 function Ir2(){
 	document.getElementById("Pantalla1").style = "display: none;";
 	document.getElementById("Pantalla2").style = "display: inline-block;";
 	document.getElementById("Pantalla3").style = "display: none;";
+	document.getElementById("Pantalla4").style = "display: none;";
+	document.getElementById("Pantalla5").style = "display: none;";
 }
 function Ir3(){
 	document.getElementById("Pantalla1").style = "display: none;";
 	document.getElementById("Pantalla2").style = "display: none;";
 	document.getElementById("Pantalla3").style = "display: inline-block;";
+	document.getElementById("Pantalla4").style = "display: none;";
+	document.getElementById("Pantalla5").style = "display: none;";
+}
+function Ir4(){
+	document.getElementById("Pantalla1").style = "display: none;";
+	document.getElementById("Pantalla2").style = "display: none;";
+	document.getElementById("Pantalla3").style = "display: none;";
+	document.getElementById("Pantalla4").style = "display: inline-block;";
+	document.getElementById("Pantalla5").style = "display: none;";
+}
+function Ir5(){
+	document.getElementById("Pantalla1").style = "display: none;";
+	document.getElementById("Pantalla2").style = "display: none;";
+	document.getElementById("Pantalla3").style = "display: none;";
+	document.getElementById("Pantalla4").style = "display: none;";
+	document.getElementById("Pantalla5").style = "display: inline-block;";
 }

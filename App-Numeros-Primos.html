@@ -5,7 +5,7 @@
 	<meta name="author" content="Pol Flórez Viciana" >
 	<meta name="owner" content="Pol Flórez Viciana" >
 	<meta name="keywords" content="Inicial" >
-	<title>App Números Primos 13.0</title>
+	<title>App Números Primos 15.0</title>
 	<meta name="description" content="Aplicación de Comprobación de Números Primos." >
 	<meta name="robots" content="index, dofollow" >
 	<link rel="icon" type="image/png" href="./imagenes/Logo.ico">
@@ -18,56 +18,99 @@
 <body>
 	<center>
 		<header>
-			<table><tr><td><img style="width: 64px;" src="./imagenes/Logo-Pol-Software.png" /></td><td><h1 id="Titulo">App Números Primos 13.0</h1></td></tr></table>
+			<table><tr><td><img style="width: 64px;" src="./imagenes/Logo-Pol-Software.png" /></td><td><h1 id="Titulo">App Números Primos 15.0</h1></td></tr></table>
 		</header>
 		
 		<!-- Aquí empieza cada pantalla -->
 		
 		<!-- Pantalla 1 -->
 		<section id="Pantalla1">
-			<h2>Aplicación de Números Primos</h2>
+			<h2>Calculadora de Números Primos</h2>
 			<table>
 			<tr>
 			<td><img style="width: 64px;" src="./imagenes/Logo-Pol-Software.png" /></td>
-			<td><input class="MyInput" style="background-color: green; color: white;" type="button" onclick="Ir2()" value="Contador N.P." title="Contador de Números Primos" /><br></td>
 			<td><h3>Calculadora de Números Primos</h3></td>
-			<td><input class="MyInput" style="background-color: green; color: white;" type="button" onclick="Ir3()" value="Ayuda" title="Ver Ayuda" /><br></td>
+			<td><input class="MyInput" style="background-color: green; color: white;" type="button" onclick="Ir5()" value="Ayuda" title="Ver Ayuda" /><br></td>
 			</tr>
 			</table>
-			<p>Introduzca un número de conjunto entero para comprobar si es primo o no y pulse sobre el botón para comprobar.</p><br>
+			<p>Seleccione la opción de cálculo de números primos.</p><br>
+			
+			<input class="MyInput" style="background-color: green; color: white;" type="button" onclick="Ir2()" value="Comprobar Números Primos Normales y de Marcene" title="Comprobador de Números Primos Individuales" />
+			<br><br>
+			<input class="MyInput" style="background-color: green; color: white;" type="button" onclick="Ir3()" value="Contador de Primos Dentro de un Rango" title="Contar Primos Dentro de Un Rango" />
+			<br><br>
+			<input class="MyInput" style="background-color: green; color: white;" type="button" onclick="Ir4()" value="Contar el Rango de Un Número de Primos" title="Ver el Rango de un Número de Primo" />
+			<br><br>
+			
+			<br><br>
+		</section>
+		
+		<section id="Pantalla2">
+			<h2>Calculadora de Números Primos</h2>
+			<table>
+			<tr>
+			<td><img style="width: 64px;" src="./imagenes/Logo-Pol-Software.png" /></td>
+			<td><h3>Comprobar un Número Primo</h3></td>
+			<td><input class="MyInput" style="background-color: green; color: white;" type="button" onclick="Ir5()" value="Ayuda" title="Ver Ayuda" /><br></td>
+			<td><input class="MyInput" style="background-color: red; color: white;" type="button" onclick="Ir1()" value="X" title="Salir" /><br></td>
+			</tr>
+			</table>
+			<p>Introduzca un número de conjunto entero para comprobar si es primo o no lo es, y pulse sobre el botón adecuado para comprobar.</p><br>
 			<input type="textbox" id="Texto1" name="Texto1" maxlength="16" title="Introduzca un Número" />
 			<!--
 			<input class="MyInput" type="button" id="Comprobar1" name="Comprobar1" onclick="Comprobar()" value="Método IA" title="Comprobar si es Número Primo con la Función de una IA" />
 			-->
-			<input class="MyInput" type="button" id="Comprobar2" name="Comprobar2" onclick="ComprobarSegunPol()" value="Determinar Primo" title="Determinar si es Número Primo" />
+			<input class="MyInput" type="button" id="Comprobar2" name="Comprobar2" onclick="ComprobarPrimo()" value="Determinar Primo Normal" title="Determinar si es un Número Primo" />
 			<br><br>
-			<input class="MyInput" type="button" id="Comprobar3" name="Comprobar3" onclick="ComprobarMarcene()" value="Determinar Primo Marcene" title="Determinar si es Número Primo de Marcene" />
+			<input class="MyInput" type="button" id="Comprobar3" name="Comprobar3" onclick="ComprobarMarcene()" value="Determinar Primo Marcene" title="Determinar si es un Número Primo de Marcene" />
 			<br><br>
-			<p id="Resultado">Introduzca un número de conjunto entero para comprobar si es primo o no...</p>
+			<p id="Resultado1">Introduzca un número de conjunto entero para comprobar si es primo o no...</p>
 			<br><br>
 		</section>
 		
 		<!-- Pantalla 2 -->
-		<section id="Pantalla2">
-			<h2>Aplicación de Números Primos</h2>
+		<section id="Pantalla3">
+			<h2>Calculadora de Números Primos</h2>
 			<table>
 			<tr>
 			<td><img style="width: 64px;" src="./imagenes/Logo-Pol-Software.png" /></td>
-			<td><h3>Contador de Números Primos</h3></td>
+			<td><h3>Contar Primos Dentro de Un Rango</h3></td>
+			<td><input class="MyInput" style="background-color: green; color: white;" type="button" onclick="Ir5()" value="Ayuda" title="Ver Ayuda" /><br></td>
 			<td><input class="MyInput" style="background-color: red; color: white;" type="button" onclick="Ir1()" value="X" title="Salir" /><br></td>
 			</tr>
 			</table>
-			<p>Introduzca el Rango Para la Búsqueda de Números Primos.</p><br>
-			<input type="textbox" id="Texto2" name="Texto2" maxlength="15" value="3" title="Rango Inicial" />
-			<input type="textbox" id="Texto3" name="Texto3" maxlength="15" value="81" title="Rango Final" />
-			<input class="MyInput" type="button" id="Cuentalos" name="Cuentalos" onclick="ContarNumeros()" value="Contar Primos" title="Contar los Primos en el Rango Introducido" />
+			<p>Introduzca el rango para la búsqueda de la cuenta de números primos.</p><br>
+			<input type="textbox" id="Texto2" name="Texto2" maxlength="8" value="3" title="Rango Inicial" />
+			<input type="textbox" id="Texto3" name="Texto3" maxlength="8" value="81" title="Rango Final" />
+			<input class="MyInput" type="button" id="Cuentalos" name="Cuentalos" onclick="ContarPrimos()" value="Contar Primos" title="Contar los Primos Dentro de Un Rango" />
 			<br><br>
-			<p id="ResultadoCuenta">Introduzca un rango para contar primos...</p>
+			<p id="Resultado2">Introduzca un rango para contar primos...</p>
+			<br><br>
+		</section>
+		
+		<section id="Pantalla4">
+			<h2>Calculadora de Números Primos</h2>
+			<table>
+			<tr>
+			<td><img style="width: 64px;" src="./imagenes/Logo-Pol-Software.png" /></td>
+			<td><h3>Ver el Rango de un Número de Primos</h3></td>
+			<td><input class="MyInput" style="background-color: green; color: white;" type="button" onclick="Ir5()" value="Ayuda" title="Ver Ayuda" /><br></td>
+			<td><input class="MyInput" style="background-color: red; color: white;" type="button" onclick="Ir1()" value="X" title="Salir" /><br></td>
+			</tr>
+			</table>
+			<p>Introduzca un número de conjunto entero para ver el rango de un número de primos.</p><br>
+			<input type="textbox" id="Texto4" name="Texto4" maxlength="4" title="Introduzca un Número de Primos" />
+			<!--
+			<input class="MyInput" type="button" id="Comprobar1" name="Comprobar1" onclick="Comprobar()" value="Método IA" title="Comprobar si es Número Primo con la Función de una IA" />
+			-->
+			<input class="MyInput" type="button" id="Comprobar4" name="Comprobar4" onclick="VerRango()" value="Ver Rango" title="Ver el Rango de un conjunto de Primos" />
+			<br><br>
+			<p id="Resultado3">Introduzca un número de conjunto entero para ver en que rango está...</p>
 			<br><br>
 		</section>
 		
 		<!-- Pantalla 3 -->
-		<section id="Pantalla3">
+		<section id="Pantalla5">
 			<table>
 			<tr>
 			<td><img style="width: 64px;" src="./imagenes/Logo-Pol-Software.png" /></td>
@@ -88,7 +131,7 @@
 			<a href="https://dos-a-la-tres.com/matematicas.php" target="_blank" >https://dos-a-la-tres.com/matematicas.php</a><br>
 		</section>
 		
-		<footer id="FechaInicioFechaFin" ><a href="mailto:polflorez@hotmail.com">polflorez@hotmail.com</a> ~ 04/10/2024 - 31/07/2026</footer>
+		<footer id="FechaInicioFechaFin" ><a href="mailto:polflorez@hotmail.com">polflorez@hotmail.com</a> ~ 04/10/2024 - 15/08/2026</footer>
 	</center>	
 </body>
 </html>
